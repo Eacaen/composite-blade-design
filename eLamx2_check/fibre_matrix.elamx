@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elamx version="1">
+    <laminates>
+        <laminate name="New Laminate" symmetric="true" uuid="04e0c2ea-d9de-4568-a5b1-bd31d792a848" with_middle_layer="true">
+            <layer name="New Layer" uuid="f15a8068-c5a3-4b12-9f7c-6c319e20df36">
+                <thickness>1.0</thickness>
+                <angle>30.0</angle>
+                <material>86a76916-4346-40aa-b934-a2ba9e30af51</material>
+                <criterion>de.elamx.laminate.failure.Puck</criterion>
+            </layer>
+            <layer name="New Layer" uuid="1658a96a-b553-4296-b911-b6c76a866c34">
+                <thickness>1.0</thickness>
+                <angle>60.0</angle>
+                <material>86a76916-4346-40aa-b934-a2ba9e30af51</material>
+                <criterion>de.elamx.laminate.failure.Puck</criterion>
+            </layer>
+            <calculation name="Calculation">
+                <n_x>1.0000000000000002</n_x>
+                <n_y>0.0</n_y>
+                <n_xy>0.0</n_xy>
+                <m_x>1.0</m_x>
+                <m_y>0.0</m_y>
+                <m_xy>0.0</m_xy>
+                <deltat>0.0</deltat>
+                <deltah>0.0</deltah>
+                <useStrain0>false</useStrain0>
+                <useStrain1>false</useStrain1>
+                <useStrain2>false</useStrain2>
+                <useStrain3>false</useStrain3>
+                <useStrain4>false</useStrain4>
+                <useStrain5>false</useStrain5>
+                <epsilon_x>3.672770670825245E-5</epsilon_x>
+                <epsilon_y>-8.282072074906012E-6</epsilon_y>
+                <gamma_xy>-2.983782516278033E-5</gamma_xy>
+                <kappa_x>5.2013879766951596E-5</kappa_x>
+                <kappa_y>-2.286046729444555E-5</kappa_y>
+                <kappa_xy>-5.280846399954449E-5</kappa_xy>
+            </calculation>
+            <buckling name="Plate Buckling">
+                <n_x>1.0</n_x>
+                <n_y>0.0</n_y>
+                <n_xy>1.0</n_xy>
+                <length>500.0</length>
+                <width>500.0</width>
+                <bcx>0</bcx>
+                <bcy>0</bcy>
+                <m>10</m>
+                <n>10</n>
+                <wholed>true</wholed>
+            </buckling>
+            <vibration name="Plate Vibration">
+                <length>500.0</length>
+                <width>500.0</width>
+                <bcx>0</bcx>
+                <bcy>0</bcy>
+                <m>20</m>
+                <n>20</n>
+                <wholed>true</wholed>
+            </vibration>
+        </laminate>
+    </laminates>
+    <materials>
+        <material class="de.elamx.micromechanics.MicroMechanicMaterial" name="F_M_L" uuid="86a76916-4346-40aa-b934-a2ba9e30af51">
+            <fibre>3b9aba15-20db-4c91-9171-fd73d4c72aeb</fibre>
+            <matrix>b7f013cf-d0c4-4944-85b8-6a31822e45bb</matrix>
+            <phi>0.4</phi>
+            <Epar>31580.0</Epar>
+            <Enor>5341.207349081365</Enor>
+            <nue12>0.29000000000000004</nue12>
+            <G>1984.5360824742263</G>
+            <rho>1.608E-9</rho>
+            <alphaTPar>1.0E-6</alphaTPar>
+            <alphaTNor>3.5E-5</alphaTNor>
+            <betaPar>0.01</betaPar>
+            <betaNor>0.38</betaNor>
+            <RParTen>1500.0</RParTen>
+            <RParCom>1000.0</RParCom>
+            <RNorTen>180.0</RNorTen>
+            <RNorCom>240.0</RNorCom>
+            <RShear>150.0</RShear>
+            <Epar_micromechmodel>de.elamx.micromechanics.models.Mischungsregel_m</Epar_micromechmodel>
+            <Enor_micromechmodel>de.elamx.micromechanics.models.Mischungsregel_m</Enor_micromechmodel>
+            <Nue12_micromechmodel>de.elamx.micromechanics.models.Mischungsregel_m</Nue12_micromechmodel>
+            <G_micromechmodel>de.elamx.micromechanics.models.Mischungsregel_m</G_micromechmodel>
+            <de.elamx.laminate.failure.Puck.pspz>0.35</de.elamx.laminate.failure.Puck.pspz>
+            <de.elamx.laminate.addFailureCriteria.Rotem.em>4500.0</de.elamx.laminate.addFailureCriteria.Rotem.em>
+            <de.elamx.laminate.addFailureCriteria.Rotem.rmt>50.0</de.elamx.laminate.addFailureCriteria.Rotem.rmt>
+            <de.elamx.laminate.addFailureCriteria.FMC.m>3.1</de.elamx.laminate.addFailureCriteria.FMC.m>
+            <de.elamx.laminate.addFailureCriteria.Rotem.rmc>50.0</de.elamx.laminate.addFailureCriteria.Rotem.rmc>
+            <de.elamx.laminate.failure.Puck.a0>0.5</de.elamx.laminate.failure.Puck.a0>
+            <de.elamx.laminate.failure.Puck.lambda_min>0.5</de.elamx.laminate.failure.Puck.lambda_min>
+            <de.elamx.laminate.addFailureCriteria.TsaiWu.f12star>-0.5</de.elamx.laminate.addFailureCriteria.TsaiWu.f12star>
+            <de.elamx.laminate.failure.Puck.pspd>0.3</de.elamx.laminate.failure.Puck.pspd>
+            <de.elamx.laminate.addFailureCriteria.FMC.muesp>0.15</de.elamx.laminate.addFailureCriteria.FMC.muesp>
+            <de.elamx.laminate.addFailureCriteria.ZTL.f12star>-0.5</de.elamx.laminate.addFailureCriteria.ZTL.f12star>
+        </material>
+    </materials>
+    <fibres>
+        <fibre class="de.elamx.micromechanics.Fiber" name="New Fibre" uuid="3b9aba15-20db-4c91-9171-fd73d4c72aeb">
+            <Epar>74000.0</Epar>
+            <Enor>74000.0</Enor>
+            <nue12>0.2</nue12>
+            <G>30800.0</G>
+            <rho>2.25E-9</rho>
+            <alphaTPar>-5.0E-7</alphaTPar>
+            <alphaTNor>1.0E-5</alphaTNor>
+            <betaPar>0.0</betaPar>
+            <betaNor>0.0</betaNor>
+        </fibre>
+    </fibres>
+    <matrices>
+        <matrix class="de.elamx.micromechanics.Matrix" name="New Matrix" uuid="b7f013cf-d0c4-4944-85b8-6a31822e45bb">
+            <E>3300.0</E>
+            <nue>0.35</nue>
+            <rho>1.18E-9</rho>
+            <alpha>6.0E-5</alpha>
+            <beta>0.3</beta>
+        </matrix>
+    </matrices>
+    <optimizations/>
+</elamx>

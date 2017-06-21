@@ -9,7 +9,8 @@ Introduction
 
 `read the program introduction for more details ` [Here](/doc/pro_introduction.pdf)  
 [Running requirements](#running-requirements) | [Installation](#installation) | [License](#license) 
-#### MY GRADUATION THESIS IN TUBS,NOT FINISH,ALL RIGHT RESERVE.
+#### MY GRADUATION THESIS IN TUBS,NOT FINISH.
+#### ALL RIGHT RESERVE
 ********************************
 ## Composite Material Calculation with CLT
 * The main package is a Python composite materials calculation package.
@@ -62,6 +63,8 @@ The laminate stresses, strain and failure Criterion based on the Classical Lamin
 >Copy the source file in you own file and develop the new function by yourself.
 
 ### License
+## MY GRADUATION THESIS IN TUBS,NOT FINISH.
+## ALL RIGHT RESERVE
 ---------------------------------------------------------
 [CLT]:https://github.com/Eacaen/composite-blade-design  "CLT"
  

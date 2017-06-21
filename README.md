@@ -46,9 +46,9 @@ The laminate stresses, strain and failure Criterion based on the Classical Lamin
 
 
 * There are many different kind of plug-ins you can use to help you plot the results in 2D or 3D.
-	![beam at Qx=1](https://github.com/Eacaen/TEMP_TUBS/blob/master/fig/t1.gif 'Shear ceter')
-	![close-beam at Qx=1](https://github.com/Eacaen/TEMP_TUBS/blob/master/fig/two_close_cells.gif 'Shear flow')
-	![close-beam at Qx=1](https://github.com/Eacaen/TEMP_TUBS/blob/master/fig/two_close_cells_out.gif 'Shear flow')
+	![beam at Qx=1](https://github.com/Eacaen/composite-blade-design/blob/master/fig/t1.gif 'Shear ceter')
+	![close-beam at Qx=1](https://github.com/Eacaen/composite-blade-design/blob/master/fig/two_close_cells.gif 'Shear flow')
+	![close-beam at Qx=1](https://github.com/Eacaen/composite-blade-design/blob/master/fig/two_close_cells_out.gif 'Shear flow')
 *****************************************************
 ### Running requirements
 	Python > v2.7

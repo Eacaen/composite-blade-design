@@ -5,7 +5,7 @@ Introduction
 | |CN|ENG|   |
 |---|----|-----|-----|
 |1|`复合材料层合板计算`|[Composite Material Calculation with CLT][CLT]| [Introduction](#composite-material-calculation-with-clt)|
-|2|`开闭剖面工程梁计算`|[Engineer Beam Calculation with open or closed profile][CLT] |[Introduction](#engineer-beam-calculation-with-open-or-closed-profile)|
+|2|`开闭剖面多闭室工程梁计算`|[Engineer Beam Calculation with open or closed profile][CLT] |[Introduction](#engineer-beam-calculation-with-open-or-closed-profile)|
 
 `read the program introduction for more details ` [Here](/doc/pro_introduction.pdf)  
 [Running requirements](#running-requirements) | [Installation](#installation) | [License](#license) 

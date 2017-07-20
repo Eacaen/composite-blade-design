@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+\begin{document}
+\title{Ubuntu\_Latex\_Sublime配置}
+\author{Eacaen}
+\maketitle
+	\section{Linux: }
+		\subsection{Latex安装}
+			从压缩包直接安装至默认路径。
+		\subsection{Sublime配置}
+	   		\begin{enumerate}
+				\item 安装Package --- LaTeXTools \& LaTeX Equation Preview \& LaTeX cwl
+				\item 修改LatexTools的setting: PATH,Builder,log(True)
+				\item 修改安装包里的 PdfLatex 等没找到的文件，修改名字。
+				\item 在安装包中的x86\_64-linux文件夹里面把一些名字tex的改为latex(pdftex --\ > pdflatex)虽然有些找不到，系统原因14.04与16.04安装后有可能结果不同
+			\end{enumerate}
+    \section{Windows: }
+    	\subsection{基本与linux相同}
+    		SumtraPdf 自带的版本不一定能用，建议安装更新的版本，在LaTeXTools的 setting 中手动添加位置。在 SumtraPdf 选项中添加反向搜索设置（方法自行百度）。
+    \section{关于数学公式预览: }
+    	\subsection{Linux下的解决方案}
+    		下载standalone包，添加至system check中有关公式预览的搜索路径后，在安装目录下使用\textbf{texhash} or \textbf{mktexlsr}命令更新宏包！！
+    	\subsection{Windows :}
+    		standalone 复制后公式预览闪\\
+    	 	尚未解决。。。
+ \end{document}
+ 

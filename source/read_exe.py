@@ -56,7 +56,8 @@ def draw_points(cos_value,linewidth = 1,color = 'b',linestyle = '--',axis = ''):
 
 	max_y = int(max([(num) for num in y])) +1
 	min_y = int(min([(num) for num in y])) -1
- 	ax1.set_xlim(min_x,max_x)
+
+	ax1.set_xlim(min_x,max_x)
 	ax1.set_ylim(min_y,max_y)
 	# print min_x-max_x,max_y - min_y
 

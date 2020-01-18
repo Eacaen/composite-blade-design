@@ -52,7 +52,7 @@ def close_Shear_center_x(profile_constant,cos_value = [],Shear_ST=[],thickness =
 		mcos_value.reverse()
 		Shear_flow.reverse()
 		thickness.reverse()
-		# print '---xxx-----reverse---xxx---in line-'
+		# print('---xxx-----reverse---xxx---in line-')
 
 	if Shear_flow:
 
@@ -74,10 +74,10 @@ def close_Shear_center_x(profile_constant,cos_value = [],Shear_ST=[],thickness =
 			x2  = x2 + syp.integrate(qtds,(s,0,length))
 
 			tt = 1.0/thickness[i]
- 			x3 = x3 + syp.integrate(tt,(s,0,length))
+			x3 = x3 + syp.integrate(tt,(s,0,length))
 
- 		# print 'x1,x2,x3',x1,'   ',x2,'   ',x3
- 		x_center = x1 - 2*A * x2 / x3
+		# print('x1,x2,x3',x1,'   ',x2,'   ',x3)
+		x_center = x1 - 2*A * x2 / x3
 		return x_center
 
 	else:
@@ -93,16 +93,16 @@ def close_Shear_center_x(profile_constant,cos_value = [],Shear_ST=[],thickness =
 
 			P_distance = dot_distance_line(cos_value[i],cos_value[i+1],basic_point)
 
- 			x1 = P_distance * Sx[i]
- 			PSx  = PSx + syp.integrate(x1,(s,0,length))
+			x1 = P_distance * Sx[i]
+			PSx  = PSx + syp.integrate(x1,(s,0,length))
 
- 			x2 = Sx[i] / thickness[i] * 1.0
- 			Sxt = Sxt + syp.integrate(x2,(s,0,length))
+			x2 = Sx[i] / thickness[i] * 1.0
+			Sxt = Sxt + syp.integrate(x2,(s,0,length))
 
- 			x3 = 1.0/thickness[i]
- 			Dst = Dst + syp.integrate(x3,(s,0,length))
+			x3 = 1.0/thickness[i]
+			Dst = Dst + syp.integrate(x3,(s,0,length))
 
- 		x_center = (Psx - 2 * A * Sxt / Dst) / Ix
+		x_center = (Psx - 2 * A * Sxt / Dst) / Ix
 		return x_center
 
 
@@ -141,14 +141,14 @@ def close_Shear_center_y(profile_constant,cos_value = [],Shear_ST=[],thickness =
 	Iy = profile_constant.Iy
 	Shear_flow = Shear_ST
 
-	# print Shear_flow
+	# print(Shear_flow)
 	k = profile_toolbox.if_clockwise(mcos_value)
 
 	if k < 0:
 		mcos_value.reverse()
 		Shear_flow.reverse()
-		# print '--yyy------reverse----yyy---in_line-'
-		# print mcos_value,'\n',Shear_flow
+		# print('--yyy------reverse----yyy---in_line-')
+		# print(mcos_value,'\n',Shear_flow)
 
 	if k > 0:
 		pass
@@ -167,14 +167,14 @@ def close_Shear_center_y(profile_constant,cos_value = [],Shear_ST=[],thickness =
 
 			qpds = Shear_flow[i] * P_distance 
 			y1  = y1 + syp.integrate(qpds,(s,0,length))
- 
+
 			qtds = Shear_flow[i] / thickness[i] * 1.0
 			y2  = y2 + syp.integrate(qtds,(s,0,length))
 
 			tt = 1.0/thickness[i]
- 			y3 = y3 + syp.integrate(tt,(s,0,length))
+			y3 = y3 + syp.integrate(tt,(s,0,length))
 
- 		y_center = 2*A * y2 / y3 - y1
+		y_center = 2*A * y2 / y3 - y1
 		return -1*y_center
 
 	else:
@@ -190,18 +190,18 @@ def close_Shear_center_y(profile_constant,cos_value = [],Shear_ST=[],thickness =
 
 			P_distance = dot_distance_line(cos_value[i],cos_value[i+1],basic_point)
 
- 			y1 = P_distance * Sy[i]
- 			PSy  = PSy + syp.integrate(y1,(s,0,length))
+			y1 = P_distance * Sy[i]
+			PSy  = PSy + syp.integrate(y1,(s,0,length))
 
- 			y2 = Sy[i] / thickness[i] * 1.0
- 			Syt = Syt + syp.integrate(y2,(s,0,length))
+			y2 = Sy[i] / thickness[i] * 1.0
+			Syt = Syt + syp.integrate(y2,(s,0,length))
 
- 			y3 = 1.0/thickness[i]
- 			Dst = Dst + syp.integrate(y3,(s,0,length))
+			y3 = 1.0/thickness[i]
+			Dst = Dst + syp.integrate(y3,(s,0,length))
 
- 		y_center = (2 * A * PSy / Dst - PSy) / Iy
- 		
- 		return y_center
+		y_center = (2 * A * PSy / Dst - PSy) / Iy
+		
+		return y_center
 
 ###################################################################################
 
@@ -223,13 +223,13 @@ def close_Shear_center(cos_value, profile_constant,thickness = [],basic_point = 
 		c_x.reverse()
 		Tk1.reverse()
 
- 	cc = open_profile.Open_Profile(c_x,Pc,thickness = Tk1,Qx = 0,Qy = 1)
+	cc = open_profile.Open_Profile(c_x,Pc,thickness = Tk1,Qx = 0,Qy = 1)
 	xx = close_Shear_center_x(cc,cos_value=c_x,Shear_ST = cc.Shear_ST,\
 		thickness = Tk1,basic_point = bp)
 ##--------------------------------------------------------------------------##
 
- 	c_y = copy.copy(cos_value)
- 	Tk2 = copy.copy(thickness)
+	c_y = copy.copy(cos_value)
+	Tk2 = copy.copy(thickness)
 
 	k   = profile_toolbox.if_clockwise(c_y)
 	if k < 0:
@@ -241,8 +241,8 @@ def close_Shear_center(cos_value, profile_constant,thickness = [],basic_point = 
 	yy = close_Shear_center_y(dd,cos_value = c_y,Shear_ST = dd.Shear_ST,\
 				thickness = Tk2,basic_point = bp)
 
- 	aa = (xx + basic_point[0]).round(4)
- 	bb = (yy + basic_point[1]).round(4)
+	aa = (xx + basic_point[0]).round(4)
+	bb = (yy + basic_point[1]).round(4)
 	return [ aa , bb]
 
 
@@ -260,6 +260,7 @@ def get_mutiCloseCells_Qp(dir,shearflow_package,num_list=[],thickness=[],G = {})
 	else:
 		gcos = line_value_package(num_list)
 
+	print(gcos)
 	qgtds = 0
 
 	if thickness == []:
@@ -272,8 +273,8 @@ def get_mutiCloseCells_Qp(dir,shearflow_package,num_list=[],thickness=[],G = {})
 	if G == {}:
 		for (v ,j)  in shearflow_package:
 	 		G[(v ,j )] = 1.0
- 
- 	for i in range(0,len(gcos)):
+
+	for i in range(0,len(gcos)):
 
 		if (gcos[i][0] , gcos[i][1]) in shearflow_package.keys():
 			dot1 = dir[gcos[i][0]]
@@ -287,11 +288,10 @@ def get_mutiCloseCells_Qp(dir,shearflow_package,num_list=[],thickness=[],G = {})
 			length = math.sqrt(yy**2+xx**2)
 			theta = math.atan2(yy, xx)
 
-			Da = shearflow_package[(gcos[i][0] , gcos[i][1])] / \
-						(G[(gcos[i][0] , gcos[i][1])]*thickness[i])
-	 		
-	 		# Da = shearflow_package[(gcos[i][0] , gcos[i][1])] / G[i] 
-	 		
+			Da = shearflow_package[(gcos[i][0] , gcos[i][1])] / (G[(gcos[i][0] , gcos[i][1])]*thickness[i])
+			
+			# Da = shearflow_package[(gcos[i][0] , gcos[i][1])] / G[i] 
+			
 			qgtds  = qgtds + syp.integrate(Da,(s,0,length)) 
 
 
@@ -310,11 +310,11 @@ def get_mutiCloseCells_Qp(dir,shearflow_package,num_list=[],thickness=[],G = {})
 			yq = shearflow_package[(gcos[i][1] , gcos[i][0])] / \
 					G[(gcos[i][1] , gcos[i][0])] /thickness[i]
 
- 			qgtds  = qgtds + syp.integrate(yq,(s,0,length)) * -1
+			qgtds  = qgtds + syp.integrate(yq,(s,0,length)) * -1
 		
 		else:
 			raise 'No Flow in the package'
- 	return qgtds
+	return qgtds
 
 
 ##################################################################################
@@ -342,8 +342,8 @@ def get_mutiCloseCells_Gt(dir,shearflow_package,num_list=[],thickness=[],G = {})
 	if G == {}:
 		for (v ,j)  in shearflow_package:
 	 		G[(v ,j )] = 1.0
- 
- 	for i in range(0,len(gcos)):
+
+	for i in range(0,len(gcos)):
 
 		if (gcos[i][0] , gcos[i][1]) in shearflow_package.keys():
 			dot1 = dir[gcos[i][0]]
@@ -358,7 +358,7 @@ def get_mutiCloseCells_Gt(dir,shearflow_package,num_list=[],thickness=[],G = {})
 			theta = math.atan2(yy, xx)
 
 			Da = 1.0/ (G[(gcos[i][0] , gcos[i][1])]*thickness[i])
-	 			 		
+				 		
 			qgtds  = qgtds + syp.integrate(Da,(s,0,length)) 
 
 
@@ -376,11 +376,11 @@ def get_mutiCloseCells_Gt(dir,shearflow_package,num_list=[],thickness=[],G = {})
 
 			yq = 1.0 / G[(gcos[i][1] , gcos[i][0])] /thickness[i]
 
- 			qgtds  = qgtds + syp.integrate(yq,(s,0,length))  
+			qgtds  = qgtds + syp.integrate(yq,(s,0,length))  
 		
 		else:
 			raise 'No Flow in the package'
- 	return qgtds
+	return qgtds
 
 # def get_mutiCloseCells_Gt(dir,num_list=[],thickness=[],G = {}):
 
@@ -454,14 +454,14 @@ def get_mutiCloseCells_Moment(dir,shearflow_package,num_list=[],basic_point = [0
 			xx = xe - xs
 			length = math.sqrt(yy**2+xx**2)
 
-			# print length
+			# print(length)
 
 			P_distance = dot_distance_line(dot1 , dot2 ,basic_point)
 
 			LR = letf_or_right(dot1 , dot2 ,basic_point)
 
 			Da = shearflow_package[(gcos[i][0] , gcos[i][1])] * P_distance
-	 
+	
 			moment  = moment + syp.integrate(Da,(s,0,length)) * LR
 
 
@@ -483,14 +483,14 @@ def get_mutiCloseCells_Moment(dir,shearflow_package,num_list=[],basic_point = [0
 			LR = letf_or_right(dot1 , dot2 ,basic_point)
 
 			Da = shearflow_package[(gcos[i][1] , gcos[i][0])] * P_distance 
-	 
+	
 			moment  = moment + syp.integrate(Da,(s,0,length)) * LR
 
 		else:
 			raise 'No Flow in the package'
 
- 	return moment
- 
+	return moment
+
 ###################################################################################
 def get_resultant_Q(dir,shearflow_package):
 	Q = 0
@@ -513,7 +513,7 @@ def get_resultant_Q(dir,shearflow_package):
 		theta = math.atan2(yy, xx)
 
 		Da = shearflow_package[(gcos[i][0] , gcos[i][1])]
- 
+
 		Q  = syp.integrate(Da,(s,0,length))
 
 		Qxx = Q * math.cos(theta)
@@ -555,8 +555,8 @@ def solve_Qn(area = [], Gt = [],Qp = []):
 	matrix1 = np.mat(matrix1)
 
 	a = matrix1.I * QQpp.T
-	# print matrix1
-	# print QQpp.T
+	# print(matrix1)
+	# print(QQpp.T)
 	return a
 
 ######################################################################################################################################
@@ -564,7 +564,7 @@ def solve_Qn(area = [], Gt = [],Qp = []):
 def get_mutiCloseCells_ShearCenter(area = [], Gt = [],Qp = [],Q = 1):
 	num = len(area)+1
 	area.append(-Q)
- 
+
 	matrix1 = np.zeros((num,num))
 
 	if num == 3:
@@ -588,8 +588,8 @@ def get_mutiCloseCells_ShearCenter(area = [], Gt = [],Qp = [],Q = 1):
 	matrix1 = np.mat(matrix1)
 
 	
-	# print matrix1
-	# print QQpp.T
+	# print(matrix1)
+	# print(QQpp.T)
 	a = matrix1.I * QQpp.T
 	return a
 
@@ -616,11 +616,11 @@ def update_mutiCloseCells_Shearflow(shearflow_package,num_list=[],Q0 = 0):
 
 		else:
 			raise 'No Flow in the package'
- 	return new_pak
+	return new_pak
 
 if __name__ == "__main__":
 	solve_Qn(area=[1,2],Gt = [[11,12],[12,22]],Qp = [2,1,0])
 
-	print solve_Qn(area=[1,2,3],Gt = [[11,12],[12,22,23],[23,33]],Qp = [3,2,1,0])
+	print(solve_Qn(area=[1,2,3],Gt = [[11,12],[12,22,23],[23,33]],Qp = [3,2,1,0]))
 
-	print get_mutiCloseCells_ShearCenter(area=[1,2,3],Gt = [[11,12],[12,22,23],[23,33]],Qp = [3,2,1,0])
+	print(get_mutiCloseCells_ShearCenter(area=[1,2,3],Gt = [[11,12],[12,22,23],[23,33]],Qp = [3,2,1,0]))

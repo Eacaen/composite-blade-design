@@ -68,7 +68,7 @@ def profile_Sy(cos_value,thickness=[]):
 		length = math.sqrt(yy**2+xx**2)
 
 		Sy = (x1*s + (x2-x1)/(2*length)*s*s)*t
-		# print 'thickness[i]',thickness[i]
+		# print('thickness[i]',thickness[i])
 		sum_sy = sum_sy + Sy.subs([(s,length),(t,thickness[i])])
 
 	return sum_sy
@@ -78,7 +78,7 @@ def Find_Centroid(cos_value=[],thickness=[],\
 	Sx = 0
 	Sy = 0
 	if area == 0 or area == None:
-		print 'MUST HAVE THE AREA\n'
+		print( 'MUST HAVE THE AREA\n')
 		return 
 
 	if cos_value != [] and graph == None:
@@ -100,7 +100,7 @@ def Find_Centroid(cos_value=[],thickness=[],\
 
 				thick_ij = v.getWeight(e)
 
- 				thickness = [thick_ij]
+				thickness = [thick_ij]
 
 				Sx = Sx + profile_Sx(cos_value,thickness) 
 				Sy = Sy + profile_Sy(cos_value,thickness) 
@@ -226,14 +226,14 @@ class Profile_Constant(object):
 			for v in self.graph:
 				for e in v.getConnections():
 					self.cos_value =[ ddir[v.id],ddir[e.id] ]
-					# print v.id,e.id
+					# print(v.id,e.id)
 					self.perimeter = self.perimeter + get_length(self.cos_value)
 
 					thick_ij = v.getWeight(e)
 					thickness = [thick_ij]
 
-					self.Area = self.Area + self.get_area(thickness) 
- 					self.Ix  = self.Ix  + self.get_Ix(thickness) 
+					self.Area = self.Area + self.get_area(thickness)
+					self.Ix  = self.Ix  + self.get_Ix(thickness)
 					self.Iy  = self.Iy  + self.get_Iy(thickness) 
 					self.Ixy = self.Ixy + self.get_Ixy(thickness)
 
@@ -283,9 +283,9 @@ class Profile_Constant(object):
 			xx = x2 - x1
 			length = math.sqrt(yy**2+xx**2)
 
-		 	fun = t*length*(y1**2 + y1 * y2 + y2**2) / 3.0
+			fun = t*length*(y1**2 + y1 * y2 + y2**2) / 3.0
 
-		 	Ix = Ix + fun.subs(t,thickness[i])
+			Ix = Ix + fun.subs(t,thickness[i])
 
 		return Ix
 ############################################################
@@ -306,9 +306,8 @@ class Profile_Constant(object):
 			xx = x2 - x1
 			length = math.sqrt(yy**2+xx**2)
 
-		 	fun = t*length*(x1**2 + x1 * x2 + x2**2) / 3.0
-
-		 	Iy = Iy + fun.subs(t,thickness[i])
+			fun = t*length*(x1**2 + x1 * x2 + x2**2) / 3.0
+			Iy = Iy + fun.subs(t,thickness[i])
 
 		return Iy
 ############################################################
@@ -328,10 +327,8 @@ class Profile_Constant(object):
 			yy = y2 - y1
 			xx = x2 - x1
 			length = math.sqrt(yy**2+xx**2)
-
-		 	fun = length*t*(2*x1*y1 + x1*y2 + x2*y1 + 2*x2*y2)/6.0
-
-		 	Ixy = Ixy + fun.subs(t,thickness[i])
+			fun = length*t*(2*x1*y1 + x1*y2 + x2*y1 + 2*x2*y2)/6.0
+			Ixy = Ixy + fun.subs(t,thickness[i])
 
 		return Ixy
 
@@ -386,7 +383,7 @@ class Profile_Constant(object):
 
 				x = self.dir[i][0] - round(self.centroid_x,2)
 				y = self.dir[i][1] - round(self.centroid_y,2)
-				# print '[x,y]',x,y
+				# print('[x,y]',x,y)
 				ddir[i] = [x,y]
 
 			self.dir = {}
@@ -407,17 +404,17 @@ class Profile_Constant(object):
 		if Load:
 			try:
 				Mx = Load[0]
- 			except:
+			except:
 				Mx = 0
 
 			try:
 				My = Load[1]
- 			except:
+			except:
 				My = 0
 
 			try:
 				Nz = Load[2]
- 			except:
+			except:
 				Nz = 0
 
 		a = Mx
@@ -487,37 +484,37 @@ if __name__ == "__main__":
 	# xy = [[-1,-1],[0,-1]]
 	# xy = [[-1,-1],[0,-1],[1,-1],[-1,1],[0,1],[1,1]]
 
-	# print profile_Sy([[2,3],[-1,0]])
-	# print profile_Sy([[-1,0],[2,3]])
-	# print profile_Sx([[2,3],[-1,0]])
-	# print profile_Sx([[-1,0],[2,3]])
+	# print(profile_Sy)([[2,3],[-1,0]])
+	# print(profile_Sy)([[-1,0],[2,3]])
+	# print(profile_Sx)([[2,3],[-1,0]])
+	# print(profile_Sx)([[-1,0],[2,3]])
 
 	xy = [[-2,-1],[0,-1],[0,1],[-2,1]]
 
 	tk = 1*np.ones(len(xy)-1)
-	print tk
+	print( tk)
 	val = Profile_Constant(xy,tk)
-	print val.__doc__
-	print val.cos_value
-	print val.Ix
-	print val.Iy
-	print val.Ixy
-	print val.Area
+	print(val.__doc__)
+	print(val.cos_value)
+	print(val.Ix)
+	print(val.Iy)
+	print(val.Ixy)
+	print()
 	
-	print 'cent',Find_Centroid(xy,val.Area)
+	print('cent',Find_Centroid)(xy,val.Area)
 
-	print 'after -----------------------------------------------'
+	print('after -----------------------------------------------')
 
 	val.profile_To_centriod()
-	print val.__doc__
-	print val.cos_value
-	print val.Ix
-	print val.Iy
-	print val.Ixy
-	print val.Area
-	print  val.perimeter
+	print(val.__doc__)
+	print(val.cos_value)
+	print(val.Ix)
+	print(val.Iy)
+	print(val.Ixy)
+	print()
+	print(  val.perimeter)
 	s = val.stress_z(My = 110,Mx = -200,Nz =0)
-	print 'stress-->',s
+	print( 'stress-->',s)
 
 
 

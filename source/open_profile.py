@@ -49,15 +49,15 @@ class Open_Profile(object):
 		if Load:
 			try:
 				self.Qx = Load[0]
- 			except:
+			except:
 				self.Qx = 0
 			try:
 				self.Qy = Load[1]
- 			except:
+			except:
 				self.Qy = 0
 			try:
 				self.Mz = Load[2]
- 			except:
+			except:
 				self.Mz = 0
 
 		self.length = []
@@ -100,8 +100,8 @@ class Open_Profile(object):
 			yy = y2 - y1
 			xx = x2 - x1
 			length = math.sqrt(yy**2+xx**2)
-		 	Sx = (y1*s + (y2-y1)/(2.0*length)*s*s)*t
-		 	Sx_list.append(Sx.subs(t,self.thickness[i]))
+			Sx = (y1*s + (y2-y1)/(2.0*length)*s*s)*t
+			Sx_list.append(Sx.subs(t,self.thickness[i]))
 
 		for i in range(1,len(Sx_list)):
 			Sx_list[i] = Sx_list[i] + Sx_list[i-1].subs(s,self.length[i-1])
@@ -126,8 +126,8 @@ class Open_Profile(object):
 			yy = y2 - y1
 			xx = x2 - x1
 			length = math.sqrt(yy**2+xx**2)
-		 	Sy = (x1*s + (x2-x1)/(2.0*length)*s*s)*t
-		 	Sy_list.append(Sy.subs(t,self.thickness[i]))
+			Sy = (x1*s + (x2-x1)/(2.0*length)*s*s)*t
+			Sy_list.append(Sy.subs(t,self.thickness[i]))
 
 		for i in range(1,len(Sy_list)):
 			Sy_list[i] = Sy_list[i] + Sy_list[i-1].subs(s,self.length[i-1])
@@ -146,8 +146,8 @@ class Open_Profile(object):
 			yy = y2 - y1
 			xx = x2 - x1
 			length = math.sqrt(yy**2+xx**2)
-		 	Sx = (y1*s + (y2-y1)/(2.0*length)*s*s)*t
-		 	Sx_list.append(Sx.subs(t,self.thickness[i]))
+			Sx = (y1*s + (y2-y1)/(2.0*length)*s*s)*t
+			Sx_list.append(Sx.subs(t,self.thickness[i]))
 
 		for i in range(1,len(Sx_list)):
 			Sx_list[i] = Sx_list[i] + Sx_list[i-1].subs(s,self.length[i-1])
@@ -189,15 +189,15 @@ class Open_Profile(object):
 
 	def report(self):
 
-		print '__doc__-->',self.__doc__
-		print 'cos_value-->',self.cos_value
-		print 'length-->',self.length
-		print 'Ix-->',self.Ix
-		print 'Iy-->',self.Iy
-		print 'Ixy-->',self.Ixy
-		print 'Sx-->',self.Sx
-		print 'Sy-->-->',self.Sy
-		print 'Shear_ST-->',self.Shear_ST
+		print('__doc__-->',self.__doc__)
+		print('cos_value-->',self.cos_value)
+		print('length-->',self.length)
+		print('Ix-->',self.Ix)
+		print('Iy-->',self.Iy)
+		print('Ixy-->',self.Ixy)
+		print('Sx-->',self.Sx)
+		print('Sy-->-->',self.Sy)
+		print('Shear_ST-->',self.Shear_ST)
 
 
 #-------------------------------#END OF CLASS#-------------------------------#
@@ -320,11 +320,11 @@ def get_Shear_center_x(profile_constant,cos_value = [],Shear_ST=[],basic_point =
 			length = math.sqrt(yy**2+xx**2)
 
 			P_distance = dot_distance_line(cos_value[i],cos_value[i+1],basic_point)
- 			Da = P_distance * Sx[i]
- 	
- 			x  = x + syp.integrate(Da,(s,0,length))
+			Da = P_distance * Sx[i]
 
-			# print 'x--]]',Sx[i],'dis--]]',P_distance ,'[][][]',syp.integrate(Da,(s,0,length))
+			x  = x + syp.integrate(Da,(s,0,length))
+
+			# print('x--]]',Sx[i],'dis--]]',P_distance ,'[][][]',syp.integrate)(Da,(s,0,length))
 
 		return x / Ix 
 #----------------------------------------------------------
@@ -403,12 +403,12 @@ def get_Shear_center(cos_value, profile_constant,thickness = [],basic_point = [0
 	k   = profile_toolbox.if_clockwise(c_x)
 	if k > 0:
 		c_x.reverse()
- 	cc = Open_Profile(c_x,Pc,thickness = Tk,Qx = 0,Qy = 1)
+	cc = Open_Profile(c_x,Pc,thickness = Tk,Qx = 0,Qy = 1)
 	xx = get_Shear_center_x(cc,Shear_ST = cc.Shear_ST,basic_point = bp)
  
 ##--------------------------------------------------------------------------##
 
- 	c_y = copy.copy(cos_value)
+	c_y = copy.copy(cos_value)
 	k   = profile_toolbox.if_clockwise(c_y)
 	if k < 0:
 		c_y.reverse()
@@ -416,8 +416,8 @@ def get_Shear_center(cos_value, profile_constant,thickness = [],basic_point = [0
 	dd = Open_Profile(c_y,Pc,thickness = Tk,Qx =1,Qy = 0)
 	yy = get_Shear_center_y(dd,Shear_ST = dd.Shear_ST,basic_point = bp)
 	
- 	aa = (xx + basic_point[0]).round(4)
- 	bb = (yy + basic_point[1]).round(4)
+	aa = (xx + basic_point[0]).round(4)
+	bb = (yy + basic_point[1]).round(4)
 	return [ aa , bb]
 
 
@@ -445,7 +445,7 @@ def get_resultant_Q(cos_value = [],Shear_ST=[],thickness = []):
 
 		Qx = Qx + Qxx
 		Qy = Qy + Qyy
-		# print '--]]',Shear_ST[i] ,'angle---?',theta*180/3.1415,'------]]  ',Qxx,'    ',Qyy
+		# print('--]]',Shear_ST[i] ,'angle---?',theta*180/3.1415,'------]]  ',Qxx,'    ',Qyy)
 
 	return {'Qx':Qx,'Qy':Qy}
 ###################################################################
@@ -467,7 +467,7 @@ def get_resultant_Qx(cos_value = [],Shear_ST=[],thickness = []):
 		Qxx = Q * math.cos(theta)
 
 		Qx = Qx + Qxx
-		print 'Shear_ST,qxx',Shear_ST[i],'----]',Qxx
+		print('Shear_ST,qxx',Shear_ST[i],'----]',Qxx)
 	return Qx
 
 ###################################################################
@@ -507,13 +507,13 @@ def get_circle(cos_value = [],Shear_ST=[]):
 
 		Q  = syp.integrate(Da,(s,0,length))
 
-		print 'Shear_ST line',i,Q
+		print('Shear_ST line',i,Q)
 	# return Q
 
 if __name__ == "__main__":
 
 	# v = read_exe.Read_COS('test3.xlsx')
-	# print v.cos_value
+	# print(v.cos_value)
 	# v.cos_value_findCentroid()
 	# xy = v.cos_value
 	# tk = v.TK
@@ -523,21 +523,21 @@ if __name__ == "__main__":
 	xy = [[-1,-1],[0,-1],[1,-1],[-1,1],[0,1],[1,1]]
 	tk = np.ones(len(xy))
 	pro = Profile_Constant(xy,tk)
-	print pro.__doc__
-	print pro.cos_value
-	print pro.Ix
-	print pro.Iy
-	print pro.Ixy
-	print pro.Area
+	print(pro.__doc__)
+	print(pro.cos_value)
+	print(pro.Ix)
+	print(pro.Iy)
+	print(pro.Ixy)
+	print(pro.Area)
 	
 	cccc = [[-1,-1],[0,-1],[1,-1],[-1,1]]
 	val = Open_Profile(cccc,pro)
 	# val.report()
-	print val.cos_value,len(val.cos_value),len(val.Sx)
-	print val.Shear_ST,len(val.Shear_ST)
-	print val.SF_package
+	print(val.cos_value,len)(val.cos_value),len(val.Sx)
+	print(val.Shear_ST,len)(val.Shear_ST)
+	print(val.SF_package)
  
-	# print dot_distance_line([0,0], [0,4], [1,2])
+	# print(dot_distance_line)([0,0], [0,4], [1,2])
 	if 0:
 		if val.Shear_ST:
 			import matplotlib.pyplot as plt

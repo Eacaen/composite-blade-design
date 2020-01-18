@@ -32,7 +32,7 @@ def draw_point_graph(graph , dir,linewidth = 1,color = 'black',linestyle = '-'\
 
 	max_y = int(max([(num) for num in y])) +1
 	min_y = int(min([(num) for num in y])) -1
- 	ax1.set_xlim(min_x,max_x)
+	ax1.set_xlim(min_x,max_x)
 	ax1.set_ylim(min_y,max_y)
 
 	ax1.plot(x,y,'o',color = 'red')
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 	lis = [[1, 2], [1, 3], [2, 4], [3, 4], [4, 4], [5, 3], [5, 2], [4, 1], [3, 1], [2, 1]]
 
 	dirddd =cos_To_dict(lis)
-	print dirddd
+	print(dirddd)
 	g = Graph()
 	for i in range(len(dirddd)):
 		g.addVertex(i)
@@ -144,7 +144,7 @@ if __name__ == "__main__":
 	# draw_point_graph(g,dirddd,color='b')
 
 	lll = dict_To_cos(dirddd)
-	print lll
-	print graph_line_thickness(g,[0,1,2,3,4,5,6,7,8,9])
-	print graph_line_length(g,dirddd,[0,1,2,3,4,5,6,7,8,9])
-	print line_value_package([1,2,3,4,5])
+	print(lll)
+	print(graph_line_thickness)(g,[0,1,2,3,4,5,6,7,8,9])
+	print(graph_line_length)(g,dirddd,[0,1,2,3,4,5,6,7,8,9])
+	print(line_value_package)([1,2,3,4,5])

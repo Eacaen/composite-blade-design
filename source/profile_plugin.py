@@ -68,8 +68,7 @@ def draw_ShearFlow3D(graph,dir=[],Shear_Flow=[],num_list=[],ShearFlow_package=[]
 
 	max_y = int(max([(num) for num in ydir])) +1
 	min_y = int(min([(num) for num in ydir])) -1
-
- 	ax.set_ylim(min_x,max_x)
+	ax.set_ylim(min_x,max_x)
 	ax.set_zlim(min_y,max_y)
 
 ################################### Draw profile #########################################
@@ -85,8 +84,10 @@ def draw_ShearFlow3D(graph,dir=[],Shear_Flow=[],num_list=[],ShearFlow_package=[]
 
 	for i in range(0,len(num_list)):
 
-		p1 = num_list[i][0] ; p2 = num_list[i][1]
-		p11 = dir[p1]  ; p22 = dir[p2]
+		p1 = num_list[i][0]
+		p2 = num_list[i][1]
+		p11 = dir[p1]
+		p22 = dir[p2]
 		leng = math.sqrt((p11[0] - p22[0])**2 + (p11[1] - p22[1])**2)
 
 		le = np.linspace(0,leng,100)
@@ -197,9 +198,9 @@ def draw_ShearFlow3D(graph,dir=[],Shear_Flow=[],num_list=[],ShearFlow_package=[]
 	if gif:
 		def simData():  
 			T1 = list(range(0,361))
-		 	T2 = range(0,360)
-		 	T2.reverse()
-		 	T1[len(T1):len(T1)] = T2
+			T2 = range(0,360)
+			T2.reverse()
+			T1[len(T1):len(T1)] = T2
 			while 1:
 				for i in range(len(T1)):
 					t = T1[i]
@@ -311,7 +312,7 @@ def draw_Stress(stress,graph,dir=[],num_list=[],linewidth = 1 ,linestyle= '-',ar
 			xx = np.linspace(xdir[m],xdir[n],5)
 			yy = np.linspace(ydir[m],ydir[n],5)
 			zz = a1*xx + b1*yy + c1
- 			ax.plot(zz, xx,yy , linewidth = linewidth ,linestyle = linestyle)
+			ax.plot(zz, xx,yy , linewidth = linewidth ,linestyle = linestyle)
 
 			zeo = np.zeros(len(xx))
 			ax.plot(zeo,xx,yy,linewidth = 3 ,color = 'black')
@@ -379,9 +380,10 @@ def draw_Stress(stress,graph,dir=[],num_list=[],linewidth = 1 ,linestyle= '-',ar
 	if gif:
 		def simData():  
 			T1 = list(range(0,361))
-		 	T2 = range(0,360)
-		 	T2.reverse()
-		 	T1[len(T1):len(T1)] = T2
+			T2 = range(0,360)
+			T2.reverse()
+
+			T1[len(T1):len(T1)] = T2
 			while 1:
 				for i in range(len(T1)):
 					t = T1[i]
@@ -532,7 +534,7 @@ def draw_Stress_2(stress_package,graph,dir=[],num_list=[],linewidth = 1 ,linesty
 			xx = np.linspace(xdir[m],xdir[n],Number_Average)
 			yy = np.linspace(ydir[m],ydir[n],Number_Average)
 			zz = a1*xx + b1*yy + c1
- 			ax.plot(zz, xx,yy , linewidth = linewidth ,linestyle = linestyle)
+			ax.plot(zz, xx,yy , linewidth = linewidth ,linestyle = linestyle)
 
 			zeo = np.zeros(len(xx))
 			ax.plot(zeo,xx,yy,linewidth = 3 ,color = 'black')
@@ -616,9 +618,9 @@ def draw_Stress_2(stress_package,graph,dir=[],num_list=[],linewidth = 1 ,linesty
 	if gif:
 		def simData():  
 			T1 = list(range(0,361))
-		 	T2 = range(0,360)
-		 	T2.reverse()
-		 	T1[len(T1):len(T1)] = T2
+			T2 = range(0,360)
+			T2.reverse()
+			T1[len(T1):len(T1)] = T2
 			while 1:
 				for i in range(len(T1)):
 					t = T1[i]

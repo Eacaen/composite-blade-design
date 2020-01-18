@@ -12,12 +12,12 @@ from profile_plugin import *
 if __name__ == "__main__":	
 	val = read_exe.Read_COS('../test_data/close_1.xlsx')
 	
- 	lis = val.cos_value	
- 	lis.append([1.5,1])
- 	lis.append([2.5,1])
- 	print lis
+	lis = val.cos_value	
+	lis.append([1.5,1])
+	lis.append([2.5,1])
+	# print(lis)
 
- 	dirddd =cos_To_dict(lis)
+	dirddd =cos_To_dict(lis)
 
 	g = Graph()
 	for i in range(len(dirddd)):
@@ -44,7 +44,7 @@ if __name__ == "__main__":
 	# draw_point_graph(g,dirddd,color='b')
 
 	# for v in g:
-	# 	print v
+	# 	print(v)
 	Pc = Profile_Constant(graph = g,dir = dirddd)
 	
 	new_dir = Pc.profile_To_centriod()
@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
 #-------------------------------------------------------------------------#
 	ccc = [9,8]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 	aa = Shearflow_package(LL,shear_flow_list)
 #-------------------------------------------------------------------------#
 	ccc = [10,8]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
@@ -80,12 +80,12 @@ if __name__ == "__main__":
 	aa = Shearflow_package(LL,shear_flow_list)
 #-------------------------------------------------------------------------#
 	ccc = [8,1]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
+
+	LL.extend(line_value_package(ccc))
 
 	SSS = val.Shear_ST[0] + aa[(9,8)].subs(s,Length(new_dir,[9,8])) +\
 					 aa[(10,8)].subs(s,Length(new_dir,[10,8]))
@@ -96,25 +96,25 @@ if __name__ == "__main__":
 	
 #-------------------------------------------------------------------------#	
 	ccc = [0,1]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
- 
+
+	LL.extend(line_value_package(ccc))
+
 	shear_flow_list.extend(val.Shear_ST)
 
 	aa = Shearflow_package(LL,shear_flow_list)
 	
 #-------------------------------------------------------------------------#	
 	ccc = [1,2]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
+
+	LL.extend(line_value_package(ccc))
 
 	SSS = val.Shear_ST[0] + aa[(0,1)].subs(s,Length(new_dir,[0,1])) + \
 					aa[(8,1)].subs(s,Length(new_dir,[8,1]))
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 #-------------------------------------------------------------------------#
 
 	ccc = [5,6]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
@@ -139,7 +139,7 @@ if __name__ == "__main__":
 	aa = Shearflow_package(LL,shear_flow_list)
 #-------------------------------------------------------------------------#
 	ccc = [11,6]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
@@ -150,12 +150,12 @@ if __name__ == "__main__":
 	aa = Shearflow_package(LL,shear_flow_list)
 #-------------------------------------------------------------------------#
 	ccc = [6,3]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
+
+	LL.extend(line_value_package(ccc))
 
 	SSS = val.Shear_ST[0] + aa[(5,6)].subs(s,Length(new_dir,[5,6])) + \
 							aa[(11,6)].subs(s,Length(new_dir,[11,6]))
@@ -166,25 +166,25 @@ if __name__ == "__main__":
 	
 #-------------------------------------------------------------------------#	
 	ccc = [4,3]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
- 
+
+	LL.extend(line_value_package(ccc))
+
 	shear_flow_list.extend(val.Shear_ST)
 
 	aa = Shearflow_package(LL,shear_flow_list)
 	
 #-------------------------------------------------------------------------#	
 	ccc = [3,2]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
+
+	LL.extend(line_value_package(ccc))
 
 	SSS = val.Shear_ST[0] + aa[(6,3)].subs(s,Length(new_dir,[6,3])) + \
 					aa[(4,3)].subs(s,Length(new_dir,[4,3]))
@@ -194,15 +194,14 @@ if __name__ == "__main__":
 	aa = Shearflow_package(LL,shear_flow_list)
 	
 #-------------------------------------------------------------------------#	
-
 	ccc = [10,7]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
- 
+
+	LL.extend(line_value_package(ccc))
+
 	shear_flow_list.extend(val.Shear_ST)
 
 	aa = Shearflow_package(LL,shear_flow_list)
@@ -211,25 +210,25 @@ if __name__ == "__main__":
 #-------------------------------------------------------------------------#	
 
 	ccc = [11,7]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
- 
+
+	LL.extend(line_value_package(ccc))
+
 	shear_flow_list.extend(val.Shear_ST)
 
 	aa = Shearflow_package(LL,shear_flow_list)
 
 #-------------------------------------------------------------------------#	
 	ccc = [7,2]
- 	cccc = [new_dir[i] for i in ccc]
+	cccc = [new_dir[i] for i in ccc]
 
 	thk = graph_line_thickness(g,ccc)
 	val = open_profile.Open_Profile(cccc,Pc,thickness = thk,Qx = 1,Qy = 0)
- 
- 	LL.extend(line_value_package(ccc))
+
+	LL.extend(line_value_package(ccc))
 
 	SSS = val.Shear_ST[0] + aa[(10,7)].subs(s,Length(new_dir,[10,7])) + \
 					aa[(11,7)].subs(s,Length(new_dir,[11,7]))
@@ -240,9 +239,9 @@ if __name__ == "__main__":
 	
 #-------------------------------------------------------------------------#	
 
-	print aa 
+	print(aa )
 
-	print close_profile.get_resultant_Q(new_dir,aa)
+	print(close_profile.get_resultant_Q,new_dir,aa)
 
 	# draw_ShearFlow3D(g,new_dir,Shear_Flow= aa.values(),num_list = LL,Shear_Center =[0,0],\
 	# 							axis = 1,gif=0)
@@ -258,12 +257,12 @@ if __name__ == "__main__":
 	g1 = close_profile.get_mutiCloseCells_Gt(new_dir,liss1)
 	g2 = close_profile.get_mutiCloseCells_Gt(new_dir,liss2)
 
-	print '------------------',qp1,qp2,g1,g2
+	print('------------------',qp1,qp2,g1,g2)
 	A1 = Surround_Area(new_dir ,liss1,basic_point = [-.5,0] )
 	A2 = Surround_Area(new_dir ,liss2,basic_point = [.5,0] )
 	
 
-	print '------------------'
+	print('------------------')
 	m1 = close_profile.get_mutiCloseCells_Moment(new_dir,aa,liss1,basic_point = [-.5,0] )
 
 	m2 = close_profile.get_mutiCloseCells_Moment(new_dir,aa,liss2,basic_point = [.5,0] )
@@ -271,36 +270,36 @@ if __name__ == "__main__":
 	pp = [0,0]
 	m3 = close_profile.get_mutiCloseCells_Moment(new_dir,aa,basic_point = pp )
 
-	print 'mmmmm',m1,m2,m1+m2,m3
+	print('mmmmm',m1,m2,m1+m2,m3)
 
 	pub_line = Length(new_dir,[7,2])
-	print 'line----->',pub_line
+	print('line----->',pub_line)
 	
 	aaaa =  close_profile.solve_Qn(area=[2*A1,2*A2],Gt =[[g1,pub_line],[pub_line,g2]],\
 									Qp = [qp1,qp2,m3])
 
-	print 'q1,q2,phi\n',aaaa
+	print('q1,q2,phi\n',aaaa)
 
 	
 
 	ShearCenter = close_profile.get_mutiCloseCells_ShearCenter\
 	(area=[2*A1,2*A2],Gt =[[g1,pub_line],[pub_line,g2]],Qp = [qp1,qp2,m3],Q=1)
 
-	print '\n',ShearCenter[2]-pp[1],'\n'
+	print('\n',ShearCenter[2]-pp[1],'\n')
 
 
-	# print close_profile.get_resultant_Q(new_dir,aa)
+	# print(close_profile.get_resultant_Q)(new_dir,aa)
 	bb = close_profile.update_mutiCloseCells_Shearflow(aa,[10,8,1,2],aaaa[0])
 	bb = close_profile.update_mutiCloseCells_Shearflow(bb,[10,7,2],-aaaa[0])
 	m1 = close_profile.get_mutiCloseCells_Moment(new_dir,bb,liss1,basic_point = [-.5,0] )
-	print m1
+	print(m1)
 
 	cc = close_profile.update_mutiCloseCells_Shearflow(aa,[11,6,3,2],-aaaa[1])
 	cc = close_profile.update_mutiCloseCells_Shearflow(cc,[11,7,2],aaaa[1])
 	m2 = close_profile.get_mutiCloseCells_Moment(new_dir,cc,liss2,basic_point = [.5,0] )
-	print m2
- 
- #-----------------------------------------------------------------------------------------
+	print(m2)
+
+#-----------------------------------------------------------------------------------------
 
 	ee = close_profile.update_mutiCloseCells_Shearflow(aa,[10,8,1,2],aaaa[0])
 	ee = close_profile.update_mutiCloseCells_Shearflow(ee,[10,7,2],-aaaa[0])
@@ -308,10 +307,10 @@ if __name__ == "__main__":
 	ee = close_profile.update_mutiCloseCells_Shearflow(ee,[11,6,3,2],-aaaa[1])
 	ee = close_profile.update_mutiCloseCells_Shearflow(ee,[11,7,2],aaaa[1])
 	m3 = close_profile.get_mutiCloseCells_Moment(new_dir,ee,basic_point = [0,0] )
-	print 'm3----->',m3
+	print('m3----->',m3)
 
-	print close_profile.get_resultant_Q(new_dir,ee)
-	# print ee,len(ee) 
+	print(close_profile.get_resultant_Q)(new_dir,ee)
+	# print(ee,len)(ee) 
 
 	draw_ShearFlow3D(g,new_dir,Shear_Flow= ee.values(),num_list = LL,Shear_Center =[0,0],\
 								axis = 0,gif=0)

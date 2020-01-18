@@ -12,7 +12,7 @@ from profile_plugin import *
 if __name__ == "__main__":	
 	val = read_exe.Read_COS('../test_data/close_2.xlsx')
 	
- 	lis = val.cos_value	
+	lis = val.cos_value	
  	# lis.append([1,2])
  	# lis.append([3,2])
  	print lis

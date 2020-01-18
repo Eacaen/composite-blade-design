@@ -35,7 +35,7 @@ def if_clockwise(cos = []):
 	'''
 	
 	a = copy.deepcopy(cos)
-	k = int(len(a)) / 2
+	k = int(len(a) / 2)
 	xi = a[k-1][0] #i-1
 	yi = a[k-1][1]
 
@@ -124,9 +124,9 @@ if __name__ == "__main__":
 		for j in range(20):
 			b = b + 0.1
 			pp = [a,b]
-			print is_point_in(pp, cos_value)
+			print(is_point_in)(pp, cos_value)
 	'''
-	print letf_or_right([0,0], [1,0], [0,-1])
-	print letf_or_right([0,0], [-1,0], [0,-1])
+	print(letf_or_right)([0,0], [1,0], [0,-1])
+	print(letf_or_right)([0,0], [-1,0], [0,-1])
 
-	print letf_or_right([0,0], [1,0], [-1,1])
+	print(letf_or_right)([0,0], [1,0], [-1,1])

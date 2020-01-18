@@ -9,7 +9,7 @@ from graph_plugin import *
 from profile_plugin import *
 
 if __name__ == "__main__":	
-	val = read_exe.Read_COS('/home/eacaen/TUBS_graduation/draft/test_data/[_.xlsx')
+	val = read_exe.Read_COS('../test_data/[_.xlsx')
 	lis = val.cos_value	
 	dirddd =cos_To_dict(lis)
 
@@ -26,9 +26,9 @@ if __name__ == "__main__":
 	
 	new_dir = Pc.profile_To_centriod()
 
-	print 'Ix-->',Pc.Ix
-	print 'Iy-->',Pc.Iy
-	print 'Ixy-->',Pc.Ixy
+	print('Ix-->',Pc.Ix)
+	print('Iy-->',Pc.Iy)
+	print('Ixy-->',Pc.Ixy)
 
 
 	ccc = [0,1,2,3]
@@ -42,12 +42,12 @@ if __name__ == "__main__":
 	
 
  
-	print 'Ix-->',val.Ix
-	print 'Iy-->',val.Iy
-	print 'Ixy-->',val.Ixy
-	print 'Sx-->',val.Sx
-	print 'Sy-->',val.Sy
-	print 'Shear_ST-->',val.get_Shear_ST()
+	print('Ix-->',val.Ix)
+	print('Iy-->',val.Iy)
+	print('Ixy-->',val.Ixy)
+	print('Sx-->',val.Sx)
+	print('Sy-->',val.Sy)
+	print('Shear_ST-->',val.get_Shear_ST)
 	
  
 	

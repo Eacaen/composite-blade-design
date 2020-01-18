@@ -1,4 +1,4 @@
-import Queue
+import queue
 import numpy as np
 import copy
 
@@ -47,7 +47,7 @@ class Vertex:
         return str(self.id) + ' connectedTo: ' + str([x.id for x in self.connectedTo])
 
     def connected(self):
-        print self.__str__()
+        print(self.__str__)()
 
     def getConnections(self):
         return self.connectedTo.keys()  #the type of connected to is also a Vertex 
@@ -56,7 +56,7 @@ class Vertex:
         return self.id
 
     def getWeight(self,nbr):
-        # print 'getWeight-----<<<<>>>>>',self.connectedTo[nbr]
+        # print('getWeight-----<<<<>>>>>',self.connectedTo[nbr])
         return self.connectedTo[nbr]
 
     def Change_Weight(self,nbr,weight = 1):
@@ -134,7 +134,7 @@ class Graph:
 
     def getEdges(self,f):
         if f not in self.vertList:
-            print 'without Vertex'
+            print('without Vertex')
             return None
         else:       
             return [x.id for x in self.vertList[f].connectedTo]
@@ -162,20 +162,20 @@ class Graph:
         for v in self:
 
             i = v.id
-            # print '---------',i
+            # print('---------',i)
             visited[i] = 0
             parents[i] = None
 
         visited[start] = 1
         parents[start] = None
-        q = Queue.Queue()#(maxsize = G_len)
-        qq = Queue.Queue()#(maxsize = G_len)
+        q = queue.Queue()#(maxsize = G_len)
+        qq = queue.Queue()#(maxsize = G_len)
         q.put(start)
         qq.put(start)
 
         while not q.empty(): #[x.id for x in self.connectedTo]
             ver = q.get()
-            # print 'ver',ver
+            # print('ver',ver)
 
             for i in self.vertList[ver].connectedTo:
                 if visited[i.id] == 0:
@@ -195,7 +195,7 @@ class Graph:
 
         visited = [0] * G_len
         parents = [None] * G_len
-        qq = Queue.Queue()
+        qq = queue.Queue()
 
         for v in self:
             visited[v.id] = 0
@@ -228,7 +228,7 @@ class Graph:
             visited = [0] * G_len
             circles = []
 
-            qq = Queue.Queue()
+            qq = queue.Queue()
 
             for v in new_g:
                 visited[v.id] = 0
@@ -253,7 +253,7 @@ class Graph:
                         
 
             for v in new_g:
-                print 'inline--->',v
+                print('inline--->',v)
                 for vv in new_g:
                     visited[vv.id] = 0
 
@@ -284,43 +284,43 @@ if __name__ == "__main__":
     g.addEdge(6,1,1)
 
 
-    print 'numVertices',g.numVertices
-    print 'numEdges',g.numEdges
+    print('numVertices',g.numVertices)
+    print('numEdges',g.numEdges)
     for v in g:
-        print v.id,v.edge
+        print(v.id,v.edge)
 
-    print '\ng.remove_Vertex(4)\n'
+    print('\ng.remove_Vertex)(4)\n')
     g.remove_Vertex(4)
     
-    print 'numVertices',g.numVertices
-    print 'numEdges',g.numEdges
+    print('numVertices',g.numVertices)
+    print('numEdges',g.numEdges)
     for v in g:
-        print v.id,v.edge
+        print(v.id,v.edge)
 
-    print '\n del 0 5'
+    print('\n del 0 5')
     g.remove_Edge(0,5)
     
-    print 'numVertices',g.numVertices
-    print 'numEdges',g.numEdges
+    print('numVertices',g.numVertices)
+    print('numEdges',g.numEdges)
     for v in g:
-        print v.id,v.edge    
+        print(v.id,v.edge    )
 
-    print '\n add 1 3'
+    print('\n add 1 3')
     g.addEdge(1,3,10)
 
     for v in g:
-        print v
+        print(v)
 
-    print 'numVertices',g.numVertices
-    print 'numEdges',g.numEdges
+    print('numVertices',g.numVertices)
+    print('numEdges',g.numEdges)
 
     g.addEdge(5,2,104000000000040)
     # g.ChangeWeight(5,2,104000000000040)
     # g.remove_Vertex(2)
-    print g.numVertices, g.numEdges
+    print(g.numVertices, g.numEdges)
     for v in g:
-        print v.id,v.edge
-    # print g.getWeights(5,2)
+        print(v.id,v.edge)
+    # print(g.getWeights)(5,2)
 
 
     gg = Graph()
@@ -335,11 +335,11 @@ if __name__ == "__main__":
     gg.addEdge(3,5,3)
     gg.addEdge(5,4,8)
 
-    print gg.numVertices, gg.numEdges
-    print gg.BSF()
-    print gg.DSF()
+    print(gg.numVertices, gg.numEdges)
+    print(gg.BSF)()
+    print(gg.DSF)()
     
     for v in gg:
-        print v
+        print(v)
 
-    print 'circlrsss-->',gg.get_minCircle()
+    print('circlrsss-->',gg.get_minCircle)()
